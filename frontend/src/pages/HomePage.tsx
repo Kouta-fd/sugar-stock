@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-const Home = () => {
+const HomePage = () => {
   return (
     <div>
       <h1>home</h1>
@@ -7,4 +7,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default HomePage;
