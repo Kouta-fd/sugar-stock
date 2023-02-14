@@ -1,16 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import UserLogin from "./pages/UserLogin"
+import type { FC } from "react";
+import IndexRoutes from "./routes";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={`/`} element={<Home />} />
-        <Route path={`/user-login`} element={<UserLogin />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+const App: FC = () => {
+  return <IndexRoutes />;
+};
 
 export default App;
