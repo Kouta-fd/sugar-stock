@@ -1,18 +1,24 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Scanner from "../../utils/Scanner";
-import { ScannerResult } from "../modules/ScannerResult";
+// import { ScannerResult } from "../modules/ScannerResult";
 
 export const BarcordeScanner = () => {
+  const navigate = useNavigate();
   const [scanning, setScanning] = useState(false);
-  const [results, setResults] = useState();
+  const [janCode, setJanCode] = useState(null);
   const scannerRef = useRef(null);
+  if (janCode !== null && janCode !== undefined) {
+    navigate(`/register-form/${janCode}`);
+  }
+  console.log(janCode);
 
   return (
     <div>
       <button onClick={() => setScanning(!scanning)}>
         {scanning ? "Stop" : "Start"}
       </button>
-      <div>{results}</div>
+      <div>{janCode}</div>
       <div
         className="video-wrap"
         ref={scannerRef}
@@ -35,7 +41,7 @@ export const BarcordeScanner = () => {
             />
             <Scanner
               scannerRef={scannerRef}
-              onDetected={(result) => setResults(result)}
+              onDetected={(result) => setJanCode(result)}
             />
           </>
         ) : null}

@@ -13,7 +13,7 @@ const IndexRoutes: FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/user-login" element={<UserLogin />} />
         <Route path="/barcorde-scanner" element={<BarcodeScanner />} />
-        <Route path="/register-form" element={<RegisterForm />} />
+        <Route path="/register-form/:id" element={<RegisterForm />} />
       </Routes>
     </BrowserRouter>
   );
