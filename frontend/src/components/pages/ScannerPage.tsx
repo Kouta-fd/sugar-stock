@@ -16,7 +16,7 @@ export const ScannerPage = () => {
       <div
         className="video-wrap"
         ref={scannerRef}
-        style={{ position: "relative", border: "3px solid red" }}
+        style={{ position: "relative"}}
       >
         <canvas
           className="drawingBuffer"

@@ -60,11 +60,9 @@ const Scanner = ({
   const handleProcessed = (result) => {
     const drawingCtx = Quagga.canvas.ctx.overlay;
     const drawingCanvas = Quagga.canvas.dom.overlay;
-    drawingCtx.font = "24px Arial";
-    drawingCtx.fillStyle = "green";
 
     if (result) {
-      // console.warn('* quagga onProcessed', result);
+      console.warn('* quagga onProcessed', result);
       if (result.boxes) {
         drawingCtx.clearRect(
           0,
@@ -89,16 +87,6 @@ const Scanner = ({
       }
 
       if (result.codeResult && result.codeResult.code) {
-        // const validated = barcodeValidator(result.codeResult.code);
-        // const validated = validateBarcode(result.codeResult.code);
-        // Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: validated ? 'green' : 'red', lineWidth: 3 });
-        // drawingCtx.font = "24px Arial";
-        // drawingCtx.fillStyle = validated ? 'green' : 'red';
-        // drawingCtx.fillText(`${result.codeResult.code} valid: ${validated}`, 10, 50);
-        // drawingCtx.fillText(result.codeResult.code, 10, 20);
-        // if (validated) {
-        //     onDetected(result);
-        // }
         Quagga.ImageDebug.drawPath(
           result.line,
           { x: "x", y: "y" },
