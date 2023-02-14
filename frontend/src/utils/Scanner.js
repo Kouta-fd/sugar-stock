@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect } from "react";
+import { useCallback, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import Quagga from "@ericblade/quagga2";
 
@@ -62,7 +62,7 @@ const Scanner = ({
     const drawingCanvas = Quagga.canvas.dom.overlay;
 
     if (result) {
-      console.warn('* quagga onProcessed', result);
+      console.warn("* quagga onProcessed", result);
       if (result.boxes) {
         drawingCtx.clearRect(
           0,
