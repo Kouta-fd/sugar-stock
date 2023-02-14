@@ -1,11 +1,11 @@
-import { BarcordeScanner } from "../components/modules/BarcodeScanner";
+import { ScannerPage } from "../components/pages/ScannerPage";
 
-const BarcordeScannerPage = () => {
+const BarcordeScanner = () => {
   return (
     <div>
       <h1>BarcordeScanner</h1>
-      <BarcordeScanner />
+      <ScannerPage />
     </div>
   );
 };
-export default BarcordeScannerPage;
+export default BarcordeScanner;
