@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Scanner from "../../utils/Scanner";
-// import { ScannerResult } from "../modules/ScannerResult";
 
 export const BarcordeScanner = () => {
   const navigate = useNavigate();
