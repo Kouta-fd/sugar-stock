@@ -13,6 +13,28 @@ export const RegisterForm: FC = () => {
   const [feeling, setFeeling] = useState<string>("");
   const [memo, setMemo] = useState<string>();
   const [selectedTou, setSelectedTou] = useState(3);
+  const [latitude, setLatitude] = useState<number>();
+  const [longitude, setLongitude] = useState<number>();
+  const [wIcon, setWIcon] = useState<string>();
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    });
+    const url = `${process.env.REACT_APP_OW_API_URL}?lat=${latitude}&lon=${longitude}&units=metric&appid=${process.env.REACT_APP_OW_API_KEY}`;
+    fetch(url)
+      .then((data) => {
+        return data.json();
+      })
+      .then((json) => {
+        console.log(json);
+        setWIcon(json.weather[0].icon);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [latitude, longitude]);
 
   useEffect(() => {
     if (id !== null) {
@@ -59,6 +81,7 @@ export const RegisterForm: FC = () => {
       image_url: product?.image_url,
       max_price: product?.max_price,
       feeling: feeling,
+      wIcon: wIcon,
       selectedTou: selectedTou,
       memo: memo,
     };
@@ -112,7 +135,11 @@ export const RegisterForm: FC = () => {
             </div>
             <div className="flex">
               <div className="w-1/3">天気</div>
-              <div className="w-2/3">晴れ</div>
+              <div className="w-2/3">
+                {wIcon===undefined? <div>loading ...</div> : <img
+                  src={`${process.env.REACT_APP_OW_ICON_URL}/${wIcon}.png`}
+                />}
+              </div>
             </div>
             <div className="flex">
               <div className="w-1/3">評価</div>

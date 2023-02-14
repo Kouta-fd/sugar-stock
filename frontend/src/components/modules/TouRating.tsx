@@ -1,5 +1,4 @@
 import type { FC } from "react";
-import { useEffect } from "react";
 import Tou from "./Tou";
 
 export const TouRating: FC<{
