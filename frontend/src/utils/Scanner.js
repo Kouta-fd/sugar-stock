@@ -2,22 +2,22 @@ import React, { useCallback, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import Quagga from "@ericblade/quagga2";
 
-function getMedian(arr) {
+const getMedian = (arr) => {
   arr.sort((a, b) => a - b);
   const half = Math.floor(arr.length / 2);
   if (arr.length % 2 === 1) {
     return arr[half];
   }
   return (arr[half - 1] + arr[half]) / 2;
-}
+};
 
-function getMedianOfCodeErrors(decodedCodes) {
+const getMedianOfCodeErrors = (decodedCodes) => {
   const errors = decodedCodes
     .filter((x) => x.error !== undefined)
     .map((x) => x.error);
   const medianOfErrors = getMedian(errors);
   return medianOfErrors;
-}
+};
 
 const defaultConstraints = {
   width: 640,
@@ -87,17 +87,27 @@ const Scanner = ({
           lineWidth: 2,
         });
       }
+
       if (result.codeResult && result.codeResult.code) {
         // const validated = barcodeValidator(result.codeResult.code);
         // const validated = validateBarcode(result.codeResult.code);
         // Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: validated ? 'green' : 'red', lineWidth: 3 });
-        drawingCtx.font = "24px Arial";
+        // drawingCtx.font = "24px Arial";
         // drawingCtx.fillStyle = validated ? 'green' : 'red';
         // drawingCtx.fillText(`${result.codeResult.code} valid: ${validated}`, 10, 50);
-        drawingCtx.fillText(result.codeResult.code, 10, 20);
+        // drawingCtx.fillText(result.codeResult.code, 10, 20);
         // if (validated) {
         //     onDetected(result);
         // }
+        Quagga.ImageDebug.drawPath(
+          result.line,
+          { x: "x", y: "y" },
+          drawingCtx,
+          {
+            color: "red",
+            lineWidth: 3,
+          }
+        );
       }
     }
   };

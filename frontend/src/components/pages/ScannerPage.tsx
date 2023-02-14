@@ -4,7 +4,7 @@ import { ScannerResult } from "../modules/ScannerResult";
 
 export const ScannerPage = () => {
   const [scanning, setScanning] = useState(false);
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState();
   const scannerRef = useRef(null);
 
   return (
@@ -12,14 +12,7 @@ export const ScannerPage = () => {
       <button onClick={() => setScanning(!scanning)}>
         {scanning ? "Stop" : "Start"}
       </button>
-      <ul className="results">
-        {results.map(
-          (result) =>
-            result.codeResult && (
-              <ScannerResult key={result.codeResult.code} result={result} />
-            )
-        )}
-      </ul>
+      <div>{results}</div>
       <div
         className="video-wrap"
         ref={scannerRef}
@@ -41,7 +34,7 @@ export const ScannerPage = () => {
         {scanning ? (
           <Scanner
             scannerRef={scannerRef}
-            onDetected={(result) => setResults([...results, result])}
+            onDetected={(result) => setResults(result)}
           />
         ) : null}
       </div>
