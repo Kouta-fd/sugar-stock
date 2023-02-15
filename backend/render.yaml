@@ -1,14 +1,14 @@
 databases:
   - name: myapp_development
     databaseName: myapp_development
-    user: rails7_sample
-    region: singapore
+    user: myapp_development_user
+    region: Oregon
 
 services:
   - type: web
     name: sugar-stock
     env: ruby
-    region: singapore
+    region: Oregon
     plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
