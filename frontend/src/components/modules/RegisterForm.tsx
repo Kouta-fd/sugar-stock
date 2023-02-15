@@ -49,7 +49,7 @@ export const RegisterForm: FC = () => {
           const scannedProduct = {
             name: product.productName,
             image_url: product.mediumImageUrl,
-            max_price: product.maxPrice,
+            price: product.minPrice,
           };
           setProduct(scannedProduct);
           setIsLoading(false);
@@ -79,7 +79,7 @@ export const RegisterForm: FC = () => {
     const newPost = {
       name: product?.name,
       image_url: product?.image_url,
-      max_price: product?.max_price,
+      max_price: product?.price,
       feeling: feeling,
       wIcon: wIcon,
       selectedTou: selectedTou,
@@ -114,7 +114,7 @@ export const RegisterForm: FC = () => {
             </div>
             <div className="flex">
               <div className="w-1/3">金額</div>
-              <div className="w-2/3">{product?.max_price}円</div>
+              <div className="w-2/3">{product?.price}円</div>
             </div>
             <div className="flex">
               <label className="block font-medium text-gray-900 w-1/3">
