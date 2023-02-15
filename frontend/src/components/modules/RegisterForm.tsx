@@ -79,7 +79,7 @@ export const RegisterForm: FC = () => {
     const newPost = {
       name: product?.name,
       image_url: product?.image_url,
-      max_price: product?.price,
+      price: product?.price,
       feeling: feeling,
       wIcon: wIcon,
       selectedTou: selectedTou,
