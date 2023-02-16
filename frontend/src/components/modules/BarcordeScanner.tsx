@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Scanner from "../../utils/Scanner";
 
 export const BarcordeScanner = () => {
@@ -14,10 +14,9 @@ export const BarcordeScanner = () => {
 
   return (
     <div>
-      <button onClick={() => setScanning(!scanning)}>
-        {scanning ? "Stop" : "Start"}
-      </button>
-      <div>{janCode}</div>
+      <div>
+        <Link className="ml-5" to="/">戻る</Link>
+      </div>
       <div
         className="video-wrap"
         ref={scannerRef}
@@ -44,6 +43,14 @@ export const BarcordeScanner = () => {
             />
           </>
         ) : null}
+      </div>
+      <div className="absolute bottom-10 text-center w-full">
+        <button
+          className="bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          onClick={() => setScanning(!scanning)}
+        >
+          {scanning ? "スキャン終了" : "スキャン開始"}
+        </button>
       </div>
     </div>
   );
