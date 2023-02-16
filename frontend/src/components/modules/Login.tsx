@@ -26,10 +26,21 @@ export const Login = () => {
 
   return (
     <div>
-      <div>
-        <button onClick={() => clickLogin()}>Google でログイン</button>
-        <p>{currentUser?.email} でログイン中</p>
-        <button onClick={() => logout()}>logout</button>
+      <div className="text-right">
+        <button className="mr-5" onClick={() => logout()}>logout</button>
+      </div>
+      <div className="mt-10">
+        <div className="text-center">
+          <button
+            className="bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            onClick={() => clickLogin()}
+          >
+            Google でログイン
+          </button>
+        </div>
+        {currentUser ? (
+          <p className="text-center mt-5">{currentUser?.email}でログイン中</p>
+        ) : null}
       </div>
     </div>
   );

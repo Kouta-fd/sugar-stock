@@ -98,25 +98,25 @@ export const RegisterForm: FC = () => {
           <Link to="/barcorde-scanner">もう一度スキャン</Link>
         </div>
       ) : (
-        <div className="mt-7">
+        <div className="mt-7 px-5">
           <h1 className="text-center text-xl">記録</h1>
           <form onSubmit={handleSubmit}>
-            <div className="w-1/2 mx-auto my-3 max-w-[350px]">
+            <div className="w-1/2 mx-auto my-3 max-w-[350px] border-bottom">
               <img
                 className="w-full"
                 src={product?.image_url}
                 alt="product.name"
               />
             </div>
-            <div className="flex">
+            <div className="flex border-b pb-3">
               <div className="w-1/3">商品名</div>
               <div className="w-2/3">{product?.name}</div>
             </div>
-            <div className="flex">
+            <div className="flex mt-3 border-b pb-3">
               <div className="w-1/3">金額</div>
               <div className="w-2/3">{product?.price}円</div>
             </div>
-            <div className="flex">
+            <div className="flex mt-3 border-b pb-3">
               <label className="block font-medium text-gray-900 w-1/3">
                 感情
               </label>
@@ -133,7 +133,7 @@ export const RegisterForm: FC = () => {
                 <option value="3">楽</option>
               </select>
             </div>
-            <div className="flex">
+            <div className="flex mt-3 border-b pb-3">
               <div className="w-1/3">天気</div>
               <div className="w-2/3">
                 {wIcon===undefined? <div>loading ...</div> : <img
@@ -141,7 +141,7 @@ export const RegisterForm: FC = () => {
                 />}
               </div>
             </div>
-            <div className="flex">
+            <div className="flex mt-3 border-b pb-3">
               <div className="w-1/3">評価</div>
               <div className="w-2/3 flex">
                 <TouRating
@@ -150,18 +150,18 @@ export const RegisterForm: FC = () => {
                 />
               </div>
             </div>
-            <div>
+            <div className="mt-3 pb-3">
               <div>メモ</div>
               <textarea
                 value={memo}
                 onChange={handleMemoChange}
-                className="w-full"
+                className="w-full border p-3"
                 placeholder="test"
               />
             </div>
-            <div className="flex justify-around">
+            <div className="flex justify-around mt-5 mb-10">
               <Link
-                to="/home"
+                to="/"
                 className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full"
               >
                 キャンセル
